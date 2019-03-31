@@ -2,12 +2,11 @@ import express from "express"
 import path from "path"
 
 // helmet doesn't work in codesandbox.io
-// import helmet from "helmet"
-import axios from "axios"
+import helmet from "helmet"
+// import axios from "axios"
 import mongoose from "mongoose"
 import passport from "passport"
 import LocalStrategy from "passport-local"
-import passportLocalMongoose from "passport-local-mongoose"
 import expressSession from "express-session"
 
 import User from "./models/user"
@@ -19,7 +18,7 @@ const ip = process.env.IP || "0.0.0.0"
 const passportSecretKey =
   process.env.SECRETKEY || "Love can not live where there is no trust"
 // express setup
-// app.use(helmet())
+app.use(helmet())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 app.use("/", express.static(path.join(__dirname, "public")))
@@ -133,7 +132,9 @@ app
       successRedirect: "/campgrounds",
       failureRedirect: "/login"
     }),
-    (req, res) => {}
+    (req, res) => {
+      console.log(req)
+    }
   )
   .get("/signup", (req, res) => {
     // render the campgrouds
