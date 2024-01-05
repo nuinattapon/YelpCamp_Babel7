@@ -15,7 +15,7 @@
   "author": "Nattapon Sub-Anake",
   "license": "ISC",
   "dependencies": {
-    "axios": "0.18.0",
+    "axios": "1.6.4",
     "ejs": "2.6.1",
     "express": "^4.16.4",
     "express-session": "^1.15.6",
